@@ -1,0 +1,36 @@
+install docker
+--------------------
+sudo yum install -y yum-utils
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+docker ps
+sudo systemctl daemon-reload
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo chmod 777 /var/run/docker.sock
+docker ps
+----------------------------------------------
+##Minikube install
+----------------------------------------------
+sudo yum install conntrack -y
+sudo yum install wget -y
+sudo wget https://github.com/kubernetes/minikube/releases/download/v1.23.0/minikube-linux-amd64
+sudo mkdir -p /usr/local/bin/
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+---------------------------------------------------------
+##kubectl install
+----------------------------------
+sudo curl -LO https://dl.k8s.io/release/v1.22.1/bin/linux/amd64/kubectl
+sudo chmod +x ./kubectl
+sudo cp minikube /usr/bin/
+sudo cp  ./kubectl /usr/local/bin/kubectl
+cd /usr/local/
+cd bin/
+sudo cp kubectl minikube /usr/bin/
+cd
+minikube version
+minikube start
+kubectl get nodes
+minikube status
