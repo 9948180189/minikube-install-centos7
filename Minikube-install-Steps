@@ -1,5 +1,7 @@
 install docker
 --------------------
+sudo yum install java
+java -version
 sudo yum install -y yum-utils
 sudo yum-config-manager \
     --add-repo \
